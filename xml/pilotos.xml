@@ -1,0 +1,142 @@
+<pilotos>
+    <piloto>
+        <nombre>Marc Márquez</nombre>
+        <numero>93</numero>
+        <pais>España</pais>
+        <equipo>Ducati Lenovo Team</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>1</poles>
+        <puntos>57</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Francesco Bagnaia</nombre>
+        <numero>63</numero>
+        <pais>Italia</pais>
+        <equipo>Ducati Lenovo Team</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>1</poles>
+        <puntos>43</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Jorge Martín</nombre>
+        <numero>89</numero>
+        <pais>España</pais>
+        <equipo>Aprilia</equipo>
+        <victorias>1</victorias>
+        <podios>3</podios>
+        <poles>0</poles>
+        <puntos>127</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Marco Bezzecchi</nombre>
+        <numero>72</numero>
+        <pais>Italia</pais>
+        <equipo>Aprilia</equipo>
+        <victorias>3</victorias>
+        <podios>5</podios>
+        <poles>1</poles>
+        <puntos>128</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Alex Márquez</nombre>
+        <numero>73</numero>
+        <pais>España</pais>
+        <equipo>Gresini</equipo>
+        <victorias>1</victorias>
+        <podios>1</podios>
+        <poles>0</poles>
+        <puntos>55</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Fermín Aldeguer</nombre>
+        <numero>54</numero>
+        <pais>España</pais>
+        <equipo>Gresini</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>27</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Joan Mir</nombre>
+        <numero>36</numero>
+        <pais>España</pais>
+        <equipo>Honda HCR</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>8</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Luca Marini</nombre>
+        <numero>10</numero>
+        <pais>Italia</pais>
+        <equipo>Honda HCR</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>33</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Diogo Moreira</nombre>
+        <numero>89</numero>
+        <pais>Brasil</pais>
+        <equipo>Honda LCR</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>10</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Johann Zarco</nombre>
+        <numero>5</numero>
+        <pais>Francia</pais>
+        <equipo>Honda LCR</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>29</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Fabio Quartararo</nombre>
+        <numero>20</numero>
+        <pais>Francia</pais>
+        <equipo>Yamaha</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>26</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Alex Rins</nombre>
+        <numero>42</numero>
+        <pais>España</pais>
+        <equipo>Yamaha</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>7</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Franco Morbidelli</nombre>
+        <numero>21</numero>
+        <pais>Italia</pais>
+        <equipo>VR46</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>27</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Fabio Di Giannantonio</nombre>
+        <numero>49</numero>
+        <pais>Italia</pais>
+        <equipo>VR46</equipo>
+        <victorias>0</victorias>
+        <podios>2</podios>
+        <poles>2</poles>
+        <puntos>84</puntos>
+    </piloto>
+</pilotos>

@@ -92,3 +92,45 @@ h2 {
 .menu a:hover::after {
     width: 100%;
 }
+.piloto-card {
+    background: #111;
+    border: 2px solid #d40000;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* 🟡 parte izquierda */
+.piloto-info {
+    background: #0d0d0d;
+}
+
+/* nombre grande */
+.piloto-nombre {
+    font-family: 'Teko', sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/* stats */
+.stats {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* 🔴 imagen derecha */
+.piloto-img {
+    background-image: url("/IMAGENES/bagnaia.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100%;
+}
+
+/* efecto hover */
+.piloto-card {
+    transition: transform 0.3s ease;
+}
+
+.piloto-card:hover {
+    transform: scale(1.02);
+}
