@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../xslt/pilotos.xslt"?>
 <pilotos>
     <piloto>
         <nombre>Marc Márquez</nombre>
@@ -138,5 +140,85 @@
         <podios>2</podios>
         <poles>2</poles>
         <puntos>84</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Toprak Razgatlioglu</nombre>
+        <numero>7</numero>
+        <pais>Turquía</pais>
+        <equipo>Prima Pramac</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>4</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Jack Miller</nombre>
+        <numero>43</numero>
+        <pais>Australia</pais>
+        <equipo>Prima Pramac</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>1</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Pedro Acosta</nombre>
+        <numero>37</numero>
+        <pais>España</pais>
+        <equipo>KTM</equipo>
+        <victorias>0</victorias>
+        <podios>2</podios>
+        <poles>0</poles>
+        <puntos>83</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Brad Binder</nombre>
+        <numero>33</numero>
+        <pais>Sudafrica</pais>
+        <equipo>KTM</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>28</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Enea Bastianini</nombre>
+        <numero>23</numero>
+        <pais>Italia</pais>
+        <equipo>KTM Tech3</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>39</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Maverick Viñales</nombre>
+        <numero>12</numero>
+        <pais>España</pais>
+        <equipo>KTM Tech3</equipo>
+        <victorias>0</victorias>
+        <podios>0</podios>
+        <poles>0</poles>
+        <puntos>0</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Ai Ogura</nombre>
+        <numero>23</numero>
+        <pais>Japón</pais>
+        <equipo>Trackhouse</equipo>
+        <victorias>0</victorias>
+        <podios>1</podios>
+        <poles>0</poles>
+        <puntos>67</puntos>
+    </piloto>
+    <piloto>
+        <nombre>Raúl Fernández</nombre>
+        <numero>25</numero>
+        <pais>España</pais>
+        <equipo>Trackhouse</equipo>
+        <victorias>0</victorias>
+        <podios>1</podios>
+        <poles>0</poles>
+        <puntos>62</puntos>
     </piloto>
 </pilotos>

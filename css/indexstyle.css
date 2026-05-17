@@ -78,7 +78,7 @@
     height: 250px;
     margin: 20px auto 30px;
 
-    background-image: url("/IMAGENES/mugello-trazado.png");
+    background-image: url("../IMAGENES/mugello-trazado.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

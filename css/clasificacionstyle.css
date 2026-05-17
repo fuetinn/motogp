@@ -3,7 +3,7 @@
     height: 200px;
 
     /* 🔥 imagen como fondo */
-    background-image: url("/IMAGENES/motogp.jpg");
+    background-image: url("../IMAGENES/motogp.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
