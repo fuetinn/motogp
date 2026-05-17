@@ -25,3 +25,43 @@
         <a href="equipos.html">Equipos</a>
         <a href="clasificación.html" class="active">Clasificación</a>
     </nav>
+
+    <div class="container py-5">
+        <div id="contenido"></div>
+    </div>
+
+    <script>
+    async function cargarClasificacion() {
+        try {
+            const [xmlResponse, xsltResponse] = await Promise.all([
+                fetch("xml/pilotos.xml"),
+                fetch("xslt/clasificacion.xslt")
+            ]);
+
+            if (!xmlResponse.ok || !xsltResponse.ok) {
+                throw new Error(`Error cargando archivos: XML=${xmlResponse.status} XSLT=${xsltResponse.status}`);
+            }
+
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(await xmlResponse.text(), "application/xml");
+            const xslt = parser.parseFromString(await xsltResponse.text(), "application/xml");
+
+            if (xml.querySelector("parsererror") || xslt.querySelector("parsererror")) {
+                throw new Error("Error de parseo XML o XSLT. Revisa la sintaxis de los archivos.");
+            }
+
+            const processor = new XSLTProcessor();
+            processor.importStylesheet(xslt);
+
+            const fragment = processor.transformToFragment(xml, document);
+            const contenedor = document.getElementById("contenido");
+            contenedor.innerHTML = "";
+            contenedor.appendChild(fragment);
+        } catch (error) {
+            console.error(error);
+            document.getElementById("contenido").textContent = "Error al cargar la clasificación. Abre la consola para más detalles.";
+        }
+    }
+
+    cargarClasificacion();
+    </script>

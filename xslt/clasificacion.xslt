@@ -48,8 +48,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
                         <!-- posición -->
                         <h2 class="text-danger">
-                            #
-                            <xsl:value-of select="position()"/>
+                            Posición mundial: <xsl:value-of select="position()"/>
                         </h2>
 
                         <!-- nombre -->
