@@ -10,7 +10,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <div class="row g-4">
 
     <xsl:for-each select="/pilotos/piloto">
-    <xsl:sort select="nombre" data-type="text" order="ascending"/>
+    <xsl:sort select="normalize-space(nombre)" data-type="text" order="ascending"/>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
 

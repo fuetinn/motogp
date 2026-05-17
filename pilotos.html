@@ -41,9 +41,10 @@
 <script>
 async function cargarXML() {
     try {
+        const cacheBuster = Date.now();
         const [xmlResponse, xsltResponse] = await Promise.all([
-            fetch("xml/pilotos.xml"),
-            fetch("xslt/pilotos.xslt")
+            fetch(`xml/pilotos.xml?ts=${cacheBuster}`),
+            fetch(`xslt/pilotos.xslt?ts=${cacheBuster}`)
         ]);
 
         if (!xmlResponse.ok || !xsltResponse.ok) {
