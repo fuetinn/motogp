@@ -98,8 +98,8 @@ h2 {
 }
 
 .clasificacion-layout {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
     align-items: flex-start;
 }
@@ -154,16 +154,14 @@ h2 {
 }
 
 .clasificacion-layout {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
     align-items: flex-start;
 }
 
 .clasificacion-column {
-    flex: 0 0 calc(50% - 12px);
-    max-width: calc(50% - 12px);
-    min-width: 0;
+    width: 100%;
     background: rgba(12, 12, 12, 0.95);
     border: 1px solid rgba(212, 0, 0, 0.35);
     border-radius: 18px;
@@ -172,10 +170,8 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    .clasificacion-column {
-        flex: 0 0 100%;
-        max-width: 100%;
-        min-width: 100%;
+    .clasificacion-layout {
+        grid-template-columns: 1fr;
     }
 }
 
