@@ -33,27 +33,33 @@
     <script>
     async function cargarClasificacion() {
         try {
-            const [xmlResponse, xsltResponse] = await Promise.all([
+            const [pilotosResponse, equiposResponse, xsltResponse] = await Promise.all([
                 fetch("xml/pilotos.xml"),
+                fetch("xml/equipos.xml"),
                 fetch("xslt/clasificacion.xslt")
             ]);
 
-            if (!xmlResponse.ok || !xsltResponse.ok) {
-                throw new Error(`Error cargando archivos: XML=${xmlResponse.status} XSLT=${xsltResponse.status}`);
+            if (!pilotosResponse.ok || !equiposResponse.ok || !xsltResponse.ok) {
+                throw new Error(`Error cargando archivos: pilotos=${pilotosResponse.status} equipos=${equiposResponse.status} XSLT=${xsltResponse.status}`);
             }
 
             const parser = new DOMParser();
-            const xml = parser.parseFromString(await xmlResponse.text(), "application/xml");
+            const pilotosXml = parser.parseFromString(await pilotosResponse.text(), "application/xml");
+            const equiposXml = parser.parseFromString(await equiposResponse.text(), "application/xml");
             const xslt = parser.parseFromString(await xsltResponse.text(), "application/xml");
 
-            if (xml.querySelector("parsererror") || xslt.querySelector("parsererror")) {
+            if (pilotosXml.querySelector("parsererror") || equiposXml.querySelector("parsererror") || xslt.querySelector("parsererror")) {
                 throw new Error("Error de parseo XML o XSLT. Revisa la sintaxis de los archivos.");
             }
+
+            const combined = parser.parseFromString("<datos></datos>", "application/xml");
+            combined.documentElement.appendChild(combined.importNode(pilotosXml.documentElement, true));
+            combined.documentElement.appendChild(combined.importNode(equiposXml.documentElement, true));
 
             const processor = new XSLTProcessor();
             processor.importStylesheet(xslt);
 
-            const fragment = processor.transformToFragment(xml, document);
+            const fragment = processor.transformToFragment(combined, document);
             const contenedor = document.getElementById("contenido");
             contenedor.innerHTML = "";
             contenedor.appendChild(fragment);
