@@ -99,7 +99,7 @@ h2 {
 
 .clasificacion-layout {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(360px, 1fr)) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     grid-auto-rows: 1fr;
     gap: 24px;
     align-items: stretch;
@@ -160,6 +160,7 @@ h2 {
     min-width: 0;
     display: flex;
     flex-direction: column;
+    justify-content: stretch;
     background: rgba(12, 12, 12, 0.95);
     border: 1px solid rgba(212, 0, 0, 0.35);
     border-radius: 18px;
@@ -171,6 +172,7 @@ h2 {
     overflow-x: auto;
     margin-top: 18px;
     flex: 1;
+    min-height: 0;
 }
 
 @media (max-width: 768px) {
