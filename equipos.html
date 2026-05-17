@@ -25,3 +25,80 @@
         <a href="equipos.html" class="active">Equipos</a>
         <a href="clasificación.html">Clasificación</a>
     </nav>
+
+    <div class="container py-5">
+        <div id="contenido" class="equipos-grid"></div>
+    </div>
+
+    <script>
+    async function cargarEquipos() {
+        try {
+            const response = await fetch("xml/equipos.xml");
+            if (!response.ok) {
+                throw new Error(`Error cargando equipos: ${response.status}`);
+            }
+
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(await response.text(), "application/xml");
+            if (xml.querySelector("parsererror")) {
+                throw new Error("Error de parseo XML. Revisa la sintaxis de equipos.xml.");
+            }
+
+            const equipos = Array.from(xml.querySelectorAll("equipo")).map((team) => ({
+                nombre: team.querySelector("nombre")?.textContent.trim() || "",
+                pais: team.querySelector("pais")?.textContent.trim() || "",
+                moto: team.querySelector("moto")?.textContent.trim() || "",
+                pilotos: team.querySelector("pilotos")?.textContent.trim() || ""
+            })).sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', { sensitivity: 'base' }));
+
+            const colores = {
+                "Aprilia": { banner: "#020202", accent: "#FFD600", text: "#111" },
+                "Ducati Lenovo Team": { banner: "#D40000", accent: "#1A1A1A", text: "#FFFFFF" },
+                "Gresini": { banner: "#111111", accent: "#E67E22", text: "#FFFFFF" },
+                "Honda HCR": { banner: "#E60012", accent: "#111111", text: "#FFFFFF" },
+                "Honda LCR": { banner: "#000000", accent: "#E60012", text: "#FFFFFF" },
+                "Yamaha": { banner: "#0F3D82", accent: "#FFFFFF", text: "#FFFFFF" },
+                "VR46": { banner: "#000000", accent: "#F2D400", text: "#FFFFFF" },
+                "Prima Pramac": { banner: "#E60012", accent: "#1F1F1F", text: "#FFFFFF" },
+                "KTM": { banner: "#F15A24", accent: "#141414", text: "#FFFFFF" },
+                "KTM Tech3": { banner: "#F15A24", accent: "#0A0A0A", text: "#FFFFFF" },
+                "Trackhouse": { banner: "#002B5B", accent: "#FFD700", text: "#FFFFFF" }
+            };
+
+            const equiposHtml = equipos.map((team) => {
+                const palette = colores[team.nombre] || { banner: "#222", accent: "#d40000", text: "#fff" };
+                const pilotos = team.pilotos.split(",").map((pilot) => pilot.trim()).filter(Boolean);
+
+                return `
+                    <article class="team-card" style="border-color: ${palette.accent};">
+                        <div class="team-header" style="background: ${palette.banner}; color: ${palette.text};">
+                            <h3>${team.nombre}</h3>
+                        </div>
+                        <div class="team-meta">
+                            <span class="team-badge" style="background: ${palette.accent}; color: ${palette.text};">${team.moto}</span>
+                            <p><strong>País:</strong> ${team.pais}</p>
+                        </div>
+                        <div class="team-pilots">
+                            <h4>Pilotos</h4>
+                            <ul>
+                                ${pilotos.map((pilot) => `<li>${pilot}</li>`).join("")}
+                            </ul>
+                        </div>
+                    </article>
+                `;
+            }).join("");
+
+            document.getElementById("contenido").innerHTML = equiposHtml;
+        } catch (error) {
+            console.error(error);
+            const contenido = document.getElementById("contenido");
+            if (contenido) {
+                contenido.textContent = `Error al cargar equipos: ${error.message}`;
+            }
+        }
+    }
+
+    window.addEventListener("DOMContentLoaded", cargarEquipos);
+    </script>
+</body>
+</html>
