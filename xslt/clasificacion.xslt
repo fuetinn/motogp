@@ -6,24 +6,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template match="/">
 
-<html>
-
-<head>
-
-    <meta charset="UTF-8"/>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- CSS propio -->
-    <link rel="stylesheet" href="../css/pilotosstyle.css"/>
-
-    <title>Clasificación MotoGP</title>
-
-</head>
-
-<body class="bg-dark text-white">
-
 <div class="container py-5">
 
     <h1 class="text-center text-danger mb-5">
@@ -118,9 +100,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     </div>
 
 </div>
-
-</body>
-</html>
 
 </xsl:template>
 
