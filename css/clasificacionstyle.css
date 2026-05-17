@@ -148,3 +148,64 @@ h2 {
 .teams-column .position-badge {
     background: #d40000;
 }
+
+.clasificacion-layout {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.clasificacion-column {
+    flex: 1 1 420px;
+    min-width: 320px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #d40000;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.clasificacion-column h2 {
+    color: #d40000;
+    margin-bottom: 16px;
+    font-size: 2.2rem;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.clasificacion-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.clasificacion-table th,
+.clasificacion-table td {
+    border: 1px solid rgba(212, 0, 0, 0.35);
+    padding: 10px 12px;
+    text-align: left;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.clasificacion-table th {
+    background: rgba(212, 0, 0, 0.2);
+    font-weight: 700;
+}
+
+.clasificacion-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.clasificacion-table tr:hover {
+    background: rgba(212, 0, 0, 0.12);
+}
+
+@media (max-width: 900px) {
+    .clasificacion-layout {
+        flex-direction: column;
+    }
+}
+

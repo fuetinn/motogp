@@ -128,19 +128,70 @@
                 </div>
             `).join("");
 
+            const pilotosRows = pilotos.map((pilot, index) => `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${pilot.nombre}</td>
+                    <td>${pilot.equipo}</td>
+                    <td>${pilot.puntos}</td>
+                    <td>${pilot.victorias}</td>
+                    <td>${pilot.podios}</td>
+                    <td>${pilot.poles}</td>
+                </tr>
+            `).join("");
+
+            const equiposRows = equipos.map((team, index) => `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${team.nombre}</td>
+                    <td>${team.puntos}</td>
+                    <td>${team.pais}</td>
+                    <td>${team.moto}</td>
+                </tr>
+            `).join("");
+
             const html = `
-                <div class="row gx-4 gy-4 clasificacion-layout">
-                    <div class="col-12 col-xl-8 pilots-column">
-                        <div class="row g-4">
-                            ${pilotosHtml}
+                <div class="clasificacion-layout">
+                    <section class="clasificacion-column pilotos-column">
+                        <h2>Clasificación pilotos</h2>
+                        <div class="table-container">
+                            <table class="clasificacion-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Piloto</th>
+                                        <th>Equipo</th>
+                                        <th>Puntos</th>
+                                        <th>Victorias</th>
+                                        <th>Podios</th>
+                                        <th>Poles</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${pilotosRows}
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
-                    <div class="col-12 col-xl-4 teams-column">
-                        <h2 class="text-danger mb-4">Equipos</h2>
-                        <div class="row g-4">
-                            ${equiposHtml}
+                    </section>
+                    <section class="clasificacion-column equipos-column">
+                        <h2>Clasificación equipos</h2>
+                        <div class="table-container">
+                            <table class="clasificacion-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Equipo</th>
+                                        <th>Puntos</th>
+                                        <th>País</th>
+                                        <th>Moto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${equiposRows}
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
+                    </section>
                 </div>
             `;
 
