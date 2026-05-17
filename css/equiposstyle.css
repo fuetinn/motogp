@@ -95,3 +95,84 @@ h2 {
 .menu a:hover::after {
     width: 100%;
 }
+
+.equipos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #d40000;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(16, 16, 16, 0.95);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.3);
+}
+
+.team-header {
+    padding: 24px 22px;
+}
+
+.team-header h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+}
+
+.team-meta {
+    padding: 18px 22px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #f5f5f5;
+}
+
+.team-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.team-meta p {
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+.team-pilots {
+    padding: 18px 22px 24px;
+    flex: 1;
+}
+
+.team-pilots h4 {
+    margin: 0 0 14px;
+    color: #ffd700;
+    font-size: 1.05rem;
+}
+
+.team-pilots ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.team-pilots li {
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+}
