@@ -95,3 +95,43 @@ h2 {
 .menu a:hover::after {
     width: 100%;
 }
+
+.clasificacion-layout {
+    align-items: flex-start;
+}
+
+.pilots-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.position-card {
+    position: relative;
+    padding-top: 1.75rem;
+}
+
+.position-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: #d40000;
+    color: white;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+}
+
+.teams-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card {
+    min-height: 150px;
+}
+
+.team-card h3 {
+    margin-bottom: 0.75rem;
+}

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<equipos>
+    <equipo>
+        <nombre>Ducati Lenovo Team</nombre>
+        <pais>Italia</pais>
+        <moto>Ducati</moto>
+        <pilotos>Marc Márquez, Francesco Bagnaia</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>Aprilia</nombre>
+        <pais>Italia</pais>
+        <moto>Aprilia</moto>
+        <pilotos>Jorge Martín, Marco Bezzecchi</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>Gresini</nombre>
+        <pais>Italia</pais>
+        <moto>Aprilia</moto>
+        <pilotos>Alex Márquez, Fermín Aldeguer</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>Honda HCR</nombre>
+        <pais>Japón</pais>
+        <moto>Honda</moto>
+        <pilotos>Joan Mir, Luca Marini</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>Honda LCR</nombre>
+        <pais>Japón</pais>
+        <moto>Honda</moto>
+        <pilotos>Diogo Moreira, Johann Zarco</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>Yamaha</nombre>
+        <pais>Japón</pais>
+        <moto>Yamaha</moto>
+        <pilotos>Fabio Quartararo, Alex Rins</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>VR46</nombre>
+        <pais>Italia</pais>
+        <moto>Ducati</moto>
+        <pilotos>Franco Morbidelli, Fabio Di Giannantonio</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>Prima Pramac</nombre>
+        <pais>Italia</pais>
+        <moto>Ducati</moto>
+        <pilotos>Toprak Razgatlıoğlu, Jack Miller</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>KTM</nombre>
+        <pais>Austria</pais>
+        <moto>KTM</moto>
+        <pilotos>Pedro Acosta, Brad Binder</pilotos>
+    </equipo>
+    <equipo>
+        <nombre>KTM Tech3</nombre>
+        <pais>Austria</pais>
+        <moto>KTM</moto>
+        <pilotos>Enea Bastianini, Maverick Viñales</pilotos>
+    </equipo>
+</equipos>
