@@ -61,6 +61,7 @@ h2 {
 
     border-top: 2px solid #d40000;
     border-bottom: 2px solid #d40000;
+    margin-bottom: 10px;
 }
 
 .menu a {
@@ -151,61 +152,85 @@ h2 {
 
 .clasificacion-layout {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: flex-start;
 }
 
 .clasificacion-column {
-    flex: 1 1 420px;
-    min-width: 320px;
-    background: rgba(0, 0, 0, 0.5);
-    border: 2px solid #d40000;
-    border-radius: 16px;
-    padding: 20px;
+    flex: 1 1 calc(50% - 12px);
+    min-width: 360px;
+    background: rgba(12, 12, 12, 0.95);
+    border: 1px solid rgba(212, 0, 0, 0.35);
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .clasificacion-column h2 {
-    color: #d40000;
-    margin-bottom: 16px;
-    font-size: 2.2rem;
+    color: #ffd700;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(212, 0, 0, 0.6);
+    padding-bottom: 10px;
 }
 
 .table-container {
     overflow-x: auto;
+    margin-top: 18px;
 }
 
 .clasificacion-table {
     width: 100%;
     border-collapse: collapse;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 14px;
+    overflow: hidden;
 }
 
 .clasificacion-table th,
 .clasificacion-table td {
-    border: 1px solid rgba(212, 0, 0, 0.35);
-    padding: 10px 12px;
+    border: 1px solid rgba(212, 0, 0, 0.2);
+    padding: 16px 18px;
     text-align: left;
-    color: #fff;
+    color: #f5f5f5;
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .clasificacion-table th {
-    background: rgba(212, 0, 0, 0.2);
+    background: rgba(212, 0, 0, 0.35);
+    color: #fff;
     font-weight: 700;
 }
 
-.clasificacion-table tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.05);
+.clasificacion-table tbody tr {
+    transition: background 0.2s ease;
 }
 
-.clasificacion-table tr:hover {
-    background: rgba(212, 0, 0, 0.12);
+.clasificacion-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.clasificacion-table tbody tr:hover {
+    background: rgba(255, 204, 0, 0.12);
+}
+
+.clasificacion-table td:first-child,
+.clasificacion-table th:first-child {
+    width: 48px;
 }
 
 @media (max-width: 900px) {
     .clasificacion-layout {
         flex-direction: column;
+    }
+
+    .clasificacion-column {
+        flex: 1 1 100%;
     }
 }
 
