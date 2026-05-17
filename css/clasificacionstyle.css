@@ -161,8 +161,9 @@ h2 {
 }
 
 .clasificacion-column {
-    flex: 1 1 calc(50% - 12px);
-    min-width: 320px;
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+    min-width: 0;
     background: rgba(12, 12, 12, 0.95);
     border: 1px solid rgba(212, 0, 0, 0.35);
     border-radius: 18px;
@@ -172,7 +173,8 @@ h2 {
 
 @media (max-width: 768px) {
     .clasificacion-column {
-        flex: 1 1 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
         min-width: 100%;
     }
 }
