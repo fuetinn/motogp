@@ -103,7 +103,7 @@ h2 {
     grid-auto-rows: 1fr;
     gap: 24px;
     align-items: stretch;
-    width: 100%;
+    width: 90%;
 }
 
 .pilots-column {
