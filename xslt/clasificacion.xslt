@@ -16,7 +16,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
         <div class="col-12 col-xl-8 pilots-column">
             <div class="row g-4">
-                <xsl:for-each select="pilotos/piloto">
+                <xsl:for-each select="datos/pilotos/piloto">
                     <xsl:sort select="puntos" data-type="number" order="descending"/>
 
                     <div class="col-12 col-md-6">
@@ -60,8 +60,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
         <div class="col-12 col-xl-4 teams-column">
             <h2 class="text-danger mb-4">Equipos</h2>
-            <xsl:variable name="teams" select="document('../xml/equipos.xml')/equipos/equipo"/>
-            <xsl:for-each select="$teams">
+            <xsl:for-each select="datos/equipos/equipo">
                 <div class="card team-card bg-black border-danger text-white mb-4">
                     <div class="card-body">
                         <h3><xsl:value-of select="nombre"/></h3>
