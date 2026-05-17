@@ -233,13 +233,3 @@ h2 {
     width: 48px;
 }
 
-@media (max-width: 900px) {
-    .clasificacion-layout {
-        flex-direction: column;
-    }
-
-    .clasificacion-column {
-        flex: 1 1 100%;
-    }
-}
-
