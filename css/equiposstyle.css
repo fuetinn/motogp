@@ -103,6 +103,16 @@ h2 {
     margin: 32px 0;
 }
 
+.equipos-warning {
+    grid-column: 1 / -1;
+    color: #ffdd57;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    background: rgba(212, 0, 0, 0.1);
+    border: 1px solid rgba(212, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
 .team-card {
     display: flex;
     flex-direction: column;
