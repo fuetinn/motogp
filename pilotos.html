@@ -39,34 +39,36 @@
 
 <!-- ================= JS XSLT ================= -->
 <script>
-function cargarXML() {
+async function cargarXML() {
+    try {
+        const [xmlResponse, xsltResponse] = await Promise.all([
+            fetch("xml/pilotos.xml"),
+            fetch("xslt/pilotos.xslt")
+        ]);
 
-    const xhrXML = new XMLHttpRequest();
-    xhrXML.open("GET", "xml/pilotos.xml", true);
+        if (!xmlResponse.ok || !xsltResponse.ok) {
+            throw new Error(`Error cargando archivos: XML=${xmlResponse.status} XSLT=${xsltResponse.status}`);
+        }
 
-    xhrXML.onload = function () {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(await xmlResponse.text(), "application/xml");
+        const xslt = parser.parseFromString(await xsltResponse.text(), "application/xml");
 
-        const xml = xhrXML.responseXML;
+        if (xml.querySelector("parsererror") || xslt.querySelector("parsererror")) {
+            throw new Error("Error de parseo XML o XSLT. Revisa la sintaxis de los archivos.");
+        }
 
-        const xhrXSLT = new XMLHttpRequest();
-        xhrXSLT.open("GET", "xslt/pilotos.xslt", true);
+        const processor = new XSLTProcessor();
+        processor.importStylesheet(xslt);
 
-        xhrXSLT.onload = function () {
-
-            const xslt = xhrXSLT.responseXML;
-
-            const processor = new XSLTProcessor();
-            processor.importStylesheet(xslt);
-
-            const result = processor.transformToFragment(xml, document);
-
-            document.getElementById("contenido").appendChild(result);
-        };
-
-        xhrXSLT.send();
-    };
-
-    xhrXML.send();
+        const fragment = processor.transformToFragment(xml, document);
+        const contenedor = document.getElementById("contenido");
+        contenedor.innerHTML = "";
+        contenedor.appendChild(fragment);
+    } catch (error) {
+        console.error(error);
+        document.getElementById("contenido").textContent = "Error al cargar los datos. Abre la consola para más detalles.";
+    }
 }
 
 cargarXML();
