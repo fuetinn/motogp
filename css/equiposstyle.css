@@ -98,9 +98,21 @@ h2 {
 
 .equipos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 24px;
     margin: 32px 0;
+}
+
+@media (max-width: 1200px) {
+    .equipos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .equipos-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .equipos-warning {
