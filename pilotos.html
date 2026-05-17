@@ -66,12 +66,23 @@ async function cargarXML() {
         processor.importStylesheet(xslt);
 
         const fragment = processor.transformToFragment(xml, document);
+        if (!fragment || !(fragment instanceof Node)) {
+            throw new Error('La transformación XSLT no devolvió un fragmento válido. Revisa el archivo XSLT.');
+        }
+
         const contenedor = document.getElementById("contenido");
+        if (!contenedor) {
+            throw new Error('No se encontró el contenedor de resultados en la página.');
+        }
+
         contenedor.innerHTML = "";
         contenedor.appendChild(fragment);
     } catch (error) {
         console.error(error);
-        document.getElementById("contenido").textContent = "Error al cargar los datos. Abre la consola para más detalles.";
+        const contenido = document.getElementById("contenido");
+        if (contenido) {
+            contenido.textContent = `Error al cargar los datos: ${error.message}`;
+        }
     }
 }
 
