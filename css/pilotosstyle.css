@@ -36,6 +36,7 @@
     /* un poco de efecto */
     border: 2px solid white;
     font-family: 'Teko', sans-serif;
+    font-weight: 700;
 }
 body {
     font-family: 'Teko', sans-serif;
