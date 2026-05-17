@@ -33,40 +33,122 @@
     <script>
     async function cargarClasificacion() {
         try {
-            const cacheBuster = Date.now();
-            const [pilotosResponse, equiposResponse, xsltResponse] = await Promise.all([
-                fetch(`xml/pilotos.xml?ts=${cacheBuster}`),
-                fetch(`xml/equipos.xml?ts=${cacheBuster}`),
-                fetch(`xslt/clasificacion.xslt?ts=${cacheBuster}`)
+            const [pilotosResponse, equiposResponse] = await Promise.all([
+                fetch("xml/pilotos.xml"),
+                fetch("xml/equipos.xml")
             ]);
 
-            if (!pilotosResponse.ok || !equiposResponse.ok || !xsltResponse.ok) {
-                throw new Error(`Error cargando archivos: pilotos=${pilotosResponse.status} equipos=${equiposResponse.status} XSLT=${xsltResponse.status}`);
+            if (!pilotosResponse.ok || !equiposResponse.ok) {
+                throw new Error(`Error cargando archivos: pilotos=${pilotosResponse.status} equipos=${equiposResponse.status}`);
             }
 
             const parser = new DOMParser();
             const pilotosXml = parser.parseFromString(await pilotosResponse.text(), "application/xml");
             const equiposXml = parser.parseFromString(await equiposResponse.text(), "application/xml");
-            const xslt = parser.parseFromString(await xsltResponse.text(), "application/xml");
 
-            if (pilotosXml.querySelector("parsererror") || equiposXml.querySelector("parsererror") || xslt.querySelector("parsererror")) {
-                throw new Error("Error de parseo XML o XSLT. Revisa la sintaxis de los archivos.");
+            if (pilotosXml.querySelector("parsererror") || equiposXml.querySelector("parsererror")) {
+                throw new Error("Error de parseo XML. Revisa la sintaxis de los archivos.");
             }
 
-            const combined = parser.parseFromString("<datos></datos>", "application/xml");
-            combined.documentElement.appendChild(combined.importNode(pilotosXml.documentElement, true));
-            combined.documentElement.appendChild(combined.importNode(equiposXml.documentElement, true));
+            const pilotos = Array.from(pilotosXml.querySelectorAll("piloto")).map((pilot) => ({
+                nombre: pilot.querySelector("nombre")?.textContent.trim() || "",
+                numero: pilot.querySelector("numero")?.textContent.trim() || "",
+                pais: pilot.querySelector("pais")?.textContent.trim() || "",
+                equipo: pilot.querySelector("equipo")?.textContent.trim() || "",
+                victorias: Number(pilot.querySelector("victorias")?.textContent || 0),
+                podios: Number(pilot.querySelector("podios")?.textContent || 0),
+                poles: Number(pilot.querySelector("poles")?.textContent || 0),
+                puntos: Number(pilot.querySelector("puntos")?.textContent || 0)
+            }));
 
-            const processor = new XSLTProcessor();
-            processor.importStylesheet(xslt);
+            pilotos.sort((a, b) => b.puntos - a.puntos);
 
-            const fragment = processor.transformToFragment(combined, document);
+            const equipos = Array.from(equiposXml.querySelectorAll("equipo")).map((team) => {
+                const name = team.querySelector("nombre")?.textContent.trim() || "";
+                const points = pilotos
+                    .filter((pilot) => pilot.equipo === name)
+                    .reduce((sum, pilot) => sum + pilot.puntos, 0);
+
+                return {
+                    nombre: name,
+                    pais: team.querySelector("pais")?.textContent.trim() || "",
+                    moto: team.querySelector("moto")?.textContent.trim() || "",
+                    pilotos: team.querySelector("pilotos")?.textContent.trim() || "",
+                    puntos: points
+                };
+            });
+
+            equipos.sort((a, b) => b.puntos - a.puntos);
+
+            const pilotosHtml = pilotos.map((pilot, index) => `
+                <div class="col-12">
+                    <div class="card piloto-card bg-black border-danger text-white h-100">
+                        <div class="card-body position-card">
+                            <span class="position-badge">#${index + 1}</span>
+                            <h3 class="piloto-nombre">${pilot.nombre}</h3>
+                            <p><strong>Número:</strong> ${pilot.numero}</p>
+                            <p><strong>País:</strong> ${pilot.pais}</p>
+                            <p><strong>Equipo:</strong> ${pilot.equipo}</p>
+                            <hr/>
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <h5>Victorias</h5>
+                                    <p>${pilot.victorias}</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Podios</h5>
+                                    <p>${pilot.podios}</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Poles</h5>
+                                    <p>${pilot.poles}</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5>Puntos</h5>
+                                    <p class="text-warning fs-4">${pilot.puntos}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+
+            const equiposHtml = equipos.map((team, index) => `
+                <div class="col-12">
+                    <div class="card piloto-card bg-black border-danger text-white h-100">
+                        <div class="card-body position-card">
+                            <span class="position-badge">#${index + 1}</span>
+                            <h3 class="piloto-nombre">${team.nombre}</h3>
+                            <p><strong>Puntos:</strong> ${team.puntos}</p>
+                            <p><strong>País:</strong> ${team.pais}</p>
+                            <p><strong>Moto:</strong> ${team.moto}</p>
+                            <p><strong>Pilotos:</strong> ${team.pilotos}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+
+            const html = `
+                <div class="row gx-4 gy-4 clasificacion-layout">
+                    <div class="col-12 col-xl-8 pilots-column">
+                        <div class="row g-4">
+                            ${pilotosHtml}
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-4 teams-column">
+                        <h2 class="text-danger mb-4">Equipos</h2>
+                        <div class="row g-4">
+                            ${equiposHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+
             const contenedor = document.getElementById("contenido");
-            contenedor.innerHTML = "";
-            contenedor.appendChild(fragment);
+            contenedor.innerHTML = html;
         } catch (error) {
             console.error(error);
-            document.getElementById("contenido").textContent = "Error al cargar la clasificación. Abre la consola para más detalles.";
+            document.getElementById("contenido").textContent = `Error al cargar la clasificación: ${error.message}`;
         }
     }
 
