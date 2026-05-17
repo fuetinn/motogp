@@ -145,14 +145,20 @@
             `;
 
             const contenedor = document.getElementById("contenido");
+            if (!contenedor) {
+                throw new Error('No se encontró el elemento #contenido en la página.');
+            }
             contenedor.innerHTML = html;
         } catch (error) {
             console.error(error);
-            document.getElementById("contenido").textContent = `Error al cargar la clasificación: ${error.message}`;
+            const contenedor = document.getElementById("contenido");
+            if (contenedor) {
+                contenedor.textContent = `Error al cargar la clasificación: ${error.message}`;
+            }
         }
     }
 
-    cargarClasificacion();
+    window.addEventListener("DOMContentLoaded", cargarClasificacion);
     </script>
 </body>
 </html>
