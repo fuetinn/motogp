@@ -33,10 +33,11 @@
     <script>
     async function cargarClasificacion() {
         try {
+            const cacheBuster = Date.now();
             const [pilotosResponse, equiposResponse, xsltResponse] = await Promise.all([
-                fetch("xml/pilotos.xml"),
-                fetch("xml/equipos.xml"),
-                fetch("xslt/clasificacion.xslt")
+                fetch(`xml/pilotos.xml?ts=${cacheBuster}`),
+                fetch(`xml/equipos.xml?ts=${cacheBuster}`),
+                fetch(`xslt/clasificacion.xslt?ts=${cacheBuster}`)
             ]);
 
             if (!pilotosResponse.ok || !equiposResponse.ok || !xsltResponse.ok) {
