@@ -26,9 +26,9 @@
                 <xsl:variable name="teamName" select="normalize-space(nombre)"/>
                 <xsl:variable name="bannerColor">
                     <xsl:choose>
-                        <xsl:when test="$teamName='Aprilia'">#020202</xsl:when>
+                        <xsl:when test="$teamName='Aprilia'">#6A1B9A</xsl:when>
                         <xsl:when test="$teamName='Ducati Lenovo Team'">#D40000</xsl:when>
-                        <xsl:when test="$teamName='Gresini'">#111111</xsl:when>
+                        <xsl:when test="$teamName='Gresini'">#87CEEB</xsl:when>
                         <xsl:when test="$teamName='Honda HCR'">#E60012</xsl:when>
                         <xsl:when test="$teamName='Honda LCR'">#000000</xsl:when>
                         <xsl:when test="$teamName='Yamaha'">#0F3D82</xsl:when>
@@ -42,9 +42,9 @@
                 </xsl:variable>
                 <xsl:variable name="accentColor">
                     <xsl:choose>
-                        <xsl:when test="$teamName='Aprilia'">#FFD600</xsl:when>
+                        <xsl:when test="$teamName='Aprilia'">#000000</xsl:when>
                         <xsl:when test="$teamName='Ducati Lenovo Team'">#1A1A1A</xsl:when>
-                        <xsl:when test="$teamName='Gresini'">#E67E22</xsl:when>
+                        <xsl:when test="$teamName='Gresini'">#000000</xsl:when>
                         <xsl:when test="$teamName='Honda HCR'">#111111</xsl:when>
                         <xsl:when test="$teamName='Honda LCR'">#E60012</xsl:when>
                         <xsl:when test="$teamName='Yamaha'">#FFFFFF</xsl:when>
@@ -58,7 +58,7 @@
                 </xsl:variable>
                 <xsl:variable name="textColor">
                     <xsl:choose>
-                        <xsl:when test="$teamName='Aprilia'">#111111</xsl:when>
+                        <xsl:when test="$teamName='Aprilia'">#FFFFFF</xsl:when>
                         <xsl:otherwise>#FFFFFF</xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
