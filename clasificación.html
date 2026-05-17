@@ -12,13 +12,13 @@
 <body>
 
     <!-- CABECERA PRINCIPAL -->
-    <header class="hero">
-        <div class="overlay">
+    <header class="superior">
+        <div class="cabecera">
             <h1>MOTOGP</h1>
         </div>
     </header>
 
-    <nav class="menu">
+    <nav class="menu-navegacion">
         <a href="index.html">Principal</a>
         <a href="pilotos.html">Pilotos</a>
         <a href="equipos.html">Equipos</a>
@@ -81,10 +81,10 @@
 
             const pilotosHtml = pilotos.map((pilot, index) => `
                 <div class="col-12">
-                    <div class="card piloto-card bg-black border-danger text-white h-100">
-                        <div class="card-body position-card">
-                            <span class="position-badge">#${index + 1}</span>
-                            <h3 class="piloto-nombre">${pilot.nombre}</h3>
+                    <div class="card tarjeta-piloto bg-black border-danger text-white h-100">
+                        <div class="card-body tarjeta-posicion">
+                            <span class="distintivo-posicion">#${index + 1}</span>
+                            <h3 class="nombre-piloto">${pilot.nombre}</h3>
                             <p><strong>Número:</strong> ${pilot.numero}</p>
                             <p><strong>País:</strong> ${pilot.pais}</p>
                             <p><strong>Equipo:</strong> ${pilot.equipo}</p>
@@ -114,10 +114,10 @@
 
             const equiposHtml = equipos.map((team, index) => `
                 <div class="col-12">
-                    <div class="card piloto-card bg-black border-danger text-white h-100">
-                        <div class="card-body position-card">
-                            <span class="position-badge">#${index + 1}</span>
-                            <h3 class="piloto-nombre">${team.nombre}</h3>
+                    <div class="card tarjeta-piloto bg-black border-danger text-white h-100">
+                        <div class="card-body tarjeta-posicion">
+                            <span class="distintivo-posicion">#${index + 1}</span>
+                            <h3 class="nombre-piloto">${team.nombre}</h3>
                             <p><strong>Puntos:</strong> ${team.puntos}</p>
                             <p><strong>País:</strong> ${team.pais}</p>
                             <p><strong>Moto:</strong> ${team.moto}</p>
@@ -150,8 +150,8 @@
             `).join("");
 
             const html = `
-                <div class="clasificacion-layout">
-                    <section class="clasificacion-column pilotos-column">
+                <div class="diseño-clasificacion">
+                    <section class="clasificacion-column columna-pilotos">
                         <h2>Clasificación pilotos</h2>
                         <div class="table-container">
                             <table class="clasificacion-table">
@@ -172,7 +172,7 @@
                             </table>
                         </div>
                     </section>
-                    <section class="clasificacion-column equipos-column">
+                    <section class="clasificacion-column columna-equipos">
                         <h2>Clasificación equipos</h2>
                         <div class="table-container">
                             <table class="clasificacion-table">

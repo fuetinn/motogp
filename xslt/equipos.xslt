@@ -20,7 +20,7 @@
     </xsl:template>
 
     <xsl:template match="/">
-        <div class="equipos-grid">
+        <div class="rejilla-equipos">
             <xsl:for-each select="/equipos/equipo">
                 <xsl:sort select="normalize-space(nombre)" data-type="text" order="ascending"/>
                 <xsl:variable name="teamName" select="normalize-space(nombre)"/>
@@ -62,15 +62,15 @@
                         <xsl:otherwise>#FFFFFF</xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
-                <article class="team-card" style="border-color: {$accentColor};">
-                    <div class="team-header" style="background: {$bannerColor}; color: {$textColor};">
+                <article class="tarjeta-equipo" style="border-color: {$accentColor};">
+                    <div class="encabezado-equipo" style="background: {$bannerColor}; color: {$textColor};">
                         <h3><xsl:value-of select="nombre"/></h3>
                     </div>
-                    <div class="team-meta">
-                        <span class="team-badge" style="background: {$accentColor}; color: {$textColor};"><xsl:value-of select="moto"/></span>
+                    <div class="meta-equipo">
+                        <span class="distintivo-equipo" style="background: {$accentColor}; color: {$textColor};"><xsl:value-of select="moto"/></span>
                         <p><strong>País:</strong> <xsl:value-of select="pais"/></p>
                     </div>
-                    <div class="team-pilots">
+                    <div class="pilotos-equipo">
                         <h4>Pilotos</h4>
                         <ul>
                             <xsl:call-template name="render-pilotos">

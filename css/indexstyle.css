@@ -1,4 +1,4 @@
-.hero {
+.superior {
     width: 100%;
     height: 200px;
 
@@ -11,7 +11,7 @@
     position: relative;
     overflow: hidden;
 }
-.overlay {
+.cabecera {
     position: absolute;
     inset: 0;
 
@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.overlay h1 {
+.cabecera h1 {
     color: white;
     font-size: 70px;
     letter-spacing: 5px;
@@ -41,14 +41,14 @@
 body {
     font-family: 'Teko', sans-serif;
 }
-.hero {
+.superior {
     transition: transform 0.5s ease;
 }
 
-.hero:hover {
+.superior:hover {
     transform: scale(1.05);
 }
-.race-card {
+.tarjeta-carrera {
     position: relative;
     text-align: center;
     padding: 80px 20px;
@@ -60,23 +60,23 @@ body {
 }
 
 /* capa oscura */
-.race-card::before {
+.tarjeta-carrera::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.6);
 }
 
-/* todo por encima del overlay */
-.race-card h2,
-.track,
-.countdown {
+/* todo por encima de la cabecera */
+.tarjeta-carrera h2,
+.trazo,
+.contador {
     position: relative;
     z-index: 2;
 }
 
 /* 🗺ANIMACIÓN CIRCUITO */
-.track {
+.trazo {
     width: 100%;
     max-width: 500px;
     height: 250px;
@@ -90,11 +90,11 @@ body {
     /* clave para animación */
     opacity: 0;
     transform: scale(0.8);
-    animation: drawTrack 1.5s ease-out forwards;
+    animation: trazarTrazado 1.5s ease-out forwards;
 }
 
 /* animación */
-@keyframes drawTrack {
+@keyframes trazarTrazado {
     0% {
         opacity: 0;
         transform: scale(0.7);
@@ -108,13 +108,13 @@ body {
 }
 
 /* contador */
-.countdown {
+.contador {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.countdown div {
+.contador div {
     background: rgba(0,0,0,0.6);
     padding: 15px;
     border-radius: 12px;
@@ -122,7 +122,7 @@ body {
     border: 1px solid white;
 }
 
-.countdown span {
+.contador span {
     font-size: 30px;
     display: block;
 }
@@ -131,7 +131,7 @@ h2 {
     font-family: 'Teko', sans-serif;
     font-size: 700%;
 }
-.menu {
+.menu-navegacion {
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -144,7 +144,7 @@ h2 {
     font-family: 'Teko', sans-serif;
 }
 
-.menu a {
+.menu-navegacion a {
     color: white;
     text-decoration: none;
     font-size: 18px;
@@ -156,7 +156,7 @@ h2 {
 }
 
 /* efecto hover tipo MotoGP */
-.menu a::after {
+.menu-navegacion a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -169,10 +169,10 @@ h2 {
     transition: 0.3s ease;
 }
 
-.menu a:hover {
+.menu-navegacion a:hover {
     color: #d40000;
 }
 
-.menu a:hover::after {
+.menu-navegacion a:hover::after {
     width: 100%;
 }

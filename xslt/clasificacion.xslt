@@ -12,17 +12,17 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         Clasificación de Pilotos
     </h1>
 
-    <div class="row gx-4 gy-4 clasificacion-layout">
+    <div class="row gx-4 gy-4 diseño-clasificacion">
 
-        <div class="col-12 col-xl-8 pilots-column">
+        <div class="col-12 col-xl-8 columna-pilotos">
             <div class="row g-4">
                 <xsl:for-each select="datos/pilotos/piloto">
                     <xsl:sort select="puntos" data-type="number" order="descending"/>
 
                     <div class="col-12">
-                        <div class="card piloto-card bg-black border-danger text-white h-100">
-                            <div class="card-body position-card">
-                                <span class="position-badge">#<xsl:value-of select="position()"/></span>
+                        <div class="card tarjeta-piloto bg-black border-danger text-white h-100">
+                            <div class="card-body tarjeta-posicion">
+                                <span class="distintivo-posicion">#<xsl:value-of select="position()"/></span>
                                 <h3 class="piloto-nombre">
                                     <xsl:value-of select="nombre"/>
                                 </h3>
@@ -58,16 +58,16 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
             </div>
         </div>
 
-        <div class="col-12 col-xl-4 teams-column">
+        <div class="col-12 col-xl-4 columna-equipos">
             <h2 class="text-danger mb-4">Equipos</h2>
             <div class="row g-4">
                 <xsl:for-each select="datos/equipos/equipo">
                     <xsl:variable name="teamName" select="nombre"/>
                     <xsl:sort select="sum(/datos/pilotos/piloto[equipo=$teamName]/puntos)" data-type="number" order="descending"/>
                     <div class="col-12">
-                        <div class="card team-card bg-black border-danger text-white h-100">
-                            <div class="card-body position-card">
-                                <span class="position-badge">#<xsl:value-of select="position()"/></span>
+                        <div class="card tarjeta-equipo bg-black border-danger text-white h-100">
+                            <div class="card-body tarjeta-posicion">
+                                <span class="distintivo-posicion">#<xsl:value-of select="position()"/></span>
                                 <h3 class="piloto-nombre">
                                     <xsl:value-of select="nombre"/>
                                 </h3>

@@ -1,4 +1,4 @@
-.hero {
+.superior {
     width: 100%;
     height: 200px;
 
@@ -11,7 +11,7 @@
     position: relative;
     overflow: hidden;
 }
-.overlay {
+.cabecera {
     position: absolute;
     inset: 0;
 
@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.overlay h1 {
+.cabecera h1 {
     color: white;
     font-size: 70px;
     letter-spacing: 5px;
@@ -40,18 +40,18 @@
 body {
     font-family: 'Teko', sans-serif;
 }
-.hero {
+.superior {
     transition: transform 0.5s ease;
 }
 
-.hero:hover {
+.superior:hover {
     transform: scale(1.05);
 }
 h2 {
     font-family: 'Teko', sans-serif;
     font-size: 700%;
 }
-.menu {
+.menu-navegacion {
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -64,7 +64,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-.menu a {
+.menu-navegacion a {
     color: white;
     text-decoration: none;
     font-size: 18px;
@@ -76,7 +76,7 @@ h2 {
 }
 
 /* efecto hover tipo MotoGP */
-.menu a::after {
+.menu-navegacion a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -89,15 +89,15 @@ h2 {
     transition: 0.3s ease;
 }
 
-.menu a:hover {
+.menu-navegacion a:hover {
     color: #d40000;
 }
 
-.menu a:hover::after {
+.menu-navegacion a:hover::after {
     width: 100%;
 }
 
-.clasificacion-layout {
+.diseño-clasificacion {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     grid-auto-rows: 1fr;
@@ -106,17 +106,17 @@ h2 {
     width: 100%;
 }
 
-.pilots-column {
+.columna-pilotos {
     display: flex;
     flex-direction: column;
 }
 
-.position-card {
+.tarjeta-posicion {
     position: relative;
     padding-top: 1.75rem;
 }
 
-.position-badge {
+.distintivo-posicion {
     position: absolute;
     top: 0.75rem;
     right: 1rem;
@@ -129,12 +129,12 @@ h2 {
     letter-spacing: 0.7px;
 }
 
-.teams-column {
+.columna-equipos {
     display: flex;
     flex-direction: column;
 }
 
-.team-card {
+.tarjeta-equipo {
     background: #111;
     border: 2px solid #d40000;
     border-radius: 15px;
@@ -142,16 +142,16 @@ h2 {
     transition: transform 0.3s ease;
 }
 
-.team-card:hover {
+.tarjeta-equipo:hover {
     transform: scale(1.02);
 }
 
-.team-card h3,
-.piloto-card h3 {
+.tarjeta-equipo h3,
+.tarjeta-piloto h3 {
     margin-bottom: 0.75rem;
 }
 
-.teams-column .position-badge {
+.columna-equipos .distintivo-posicion {
     background: #d40000;
 }
 
@@ -176,7 +176,7 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    .clasificacion-layout {
+    .diseño-clasificacion {
         grid-template-columns: 1fr !important;
     }
 }
