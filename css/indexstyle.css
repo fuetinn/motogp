@@ -37,6 +37,9 @@
     border: 2px solid white;
     font-family: 'Teko', sans-serif;
 }
+body {
+    font-family: 'Teko', sans-serif;
+}
 .hero {
     transition: transform 0.5s ease;
 }
@@ -124,7 +127,7 @@
 }
 
 h2 {
-    font-family: teko, sans-serif;
+    font-family: 'Teko', sans-serif;
     font-size: 700%;
 }
 .menu {
