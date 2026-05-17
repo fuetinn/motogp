@@ -99,9 +99,10 @@ h2 {
 
 .clasificacion-layout {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(2, minmax(360px, 1fr)) !important;
+    grid-auto-rows: 1fr;
     gap: 24px;
-    align-items: start;
+    align-items: stretch;
     width: 100%;
 }
 
@@ -157,11 +158,19 @@ h2 {
 .clasificacion-column {
     width: 100%;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
     background: rgba(12, 12, 12, 0.95);
     border: 1px solid rgba(212, 0, 0, 0.35);
     border-radius: 18px;
     padding: 32px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 18px;
+    flex: 1;
 }
 
 @media (max-width: 768px) {
